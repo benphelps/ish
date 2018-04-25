@@ -85,8 +85,14 @@ module Ish
 
 end
 
-class Fixnum
-  include Ish::Number
+if RUBY_VERSION >= "2.4.0"
+  class Integer
+    include Ish::Number
+  end
+else
+  class Fixnum
+    include Ish::Number
+  end
 end
 
 class Float
